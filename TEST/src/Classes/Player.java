@@ -6,7 +6,6 @@ abstract public class Player {
     int dex;
     int def;
     int exp;
-    String profession;
     Weapon weapon;
 
     public Player() {
