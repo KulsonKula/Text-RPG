@@ -20,7 +20,7 @@ public class Game {
             }
 
         } catch (Exception e) {
-            // !TODO: handle exception
+            System.out.println("Bład:"+e);
         }
         System.out.println(player.GetAttack());
     }
