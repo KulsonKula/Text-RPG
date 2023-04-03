@@ -20,8 +20,8 @@ public class Game {
             }
 
         } catch (Exception e) {
-            System.out.println("Bład:"+e);
+            System.out.println("Bład:" + e);
         }
-        System.out.println(player.GetAttack());
+        System.out.println(player.GetExp());
     }
 }
