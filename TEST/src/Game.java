@@ -1,25 +1,51 @@
 import Classes.*;
 import java.util.Scanner;
+import java.io.File;
 
 public class Game {
+
     public static void main(String[] args) throws Exception {
         Player player = null;
-        try (Scanner scanner = new Scanner(System.in);) {
-            System.out.println("Jaką klasą chcesz grać?");
-            System.out.println("1: Ranger");
-            System.out.println("2: Warrior");
-            int number = scanner.nextInt();
+        File f = null;
 
+        System.out.println("Witaj w Text RPG!");
+        System.out.println("Co byś chciał zrobić?");
+        System.out.println("1: Nowa gra.");
+        System.out.println("2: Wczytaj postać.");
+        System.out.println("3: Wyjdz.");
+
+        try (Scanner scanner = new Scanner(System.in);) {
+            int number = scanner.nextInt();
             switch (number) {
                 case 1:
-                    player = new Ranger();
+                    System.out.println("Jaką klasą chcesz grać?");
+                    System.out.println("1: Ranger");
+                    System.out.println("2: Warrior");
+                    number = scanner.nextInt();
+                    switch (number) {
+                        case 1:
+                            player = new Ranger();
+                            break;
+                        case 2:
+                            player = new Warrior();
+                            break;
+                    }
+                    f = new File("Postać.txt");
+                    f.createNewFile();
+                    player.Zapisz();
                     break;
                 case 2:
-                    player = new Warrior();
+                    break;
+                case 3:
+
+                    System.exit(0);
                     break;
             }
+        }
 
-        } catch (Exception e) {
+        catch (
+
+        Exception e) {
             System.out.println("Bład:" + e);
         }
         System.out.println(player.GetExp());

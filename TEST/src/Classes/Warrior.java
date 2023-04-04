@@ -7,6 +7,7 @@ public class Warrior extends Player {
         def = 5;
         str = 12;
         dex = 10;
+        profesion = 'W';
         weapon = new Sword();
     }
 

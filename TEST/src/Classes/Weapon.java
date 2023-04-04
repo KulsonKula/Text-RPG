@@ -5,21 +5,35 @@ import java.util.Random;
 abstract class Weapon {
     int str;
     int dex;
+    char typ;
 
     abstract public int GetAttack();
 
     Random rand = new Random();
+
+    public int ReturnStr() {
+        return str;
+    }
+
+    public int ReturnDex() {
+        return dex;
+    }
+
+    public char ReturnTyp() {
+        return typ;
+    }
 }
 
 class Bow extends Weapon {
     public Bow() {
         str = 0;
         dex = 10;
+        typ = 'B';
     }
 
     public Bow(int lvl, char r) {
         str = 0;
-
+        typ = 'B';
         switch (r) {
             case 'C':
                 dex = 10 + 2 * r + rand.nextInt(4);
@@ -45,10 +59,12 @@ class Sword extends Weapon {
     public Sword() {
         str = 10;
         dex = 0;
+        typ = 'S';
     }
 
     public Sword(int lvl, char r) {
         dex = 0;
+        typ = 'S';
         switch (r) {
             case 'C':
                 str = 10 + 2 * r + rand.nextInt(4);

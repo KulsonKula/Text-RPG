@@ -1,0 +1,12 @@
+Profesion: R
+Str: 10
+Dex: 20
+Def: 3
+Maxlife: 40
+Life: 40
+Exp: 0
+Lvl: 1
+
+Typ: B
+Str: 0
+Dex: 10

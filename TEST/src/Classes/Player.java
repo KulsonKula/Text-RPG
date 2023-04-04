@@ -1,6 +1,7 @@
 package Classes;
 
 import java.lang.Math;
+import java.io.FileWriter;
 
 abstract public class Player {
 
@@ -13,6 +14,7 @@ abstract public class Player {
     int lvl = 1;
     Weapon weapon;
     int alive = 1;
+    char profesion;
 
     public Player() {
         exp = 0;
@@ -56,6 +58,27 @@ abstract public class Player {
         if (life <= 0) {
             alive = 0;
             life = 0;
+        }
+    }
+
+    public void Zapisz() {
+        try (FileWriter f = new FileWriter("Postać.txt");) {
+            f.write("Profesion: " + profesion);
+            f.write("\nStr: " + str);
+            f.write("\nDex: " + dex);
+            f.write("\nDef: " + def);
+            f.write("\nMaxlife: " + maxLife);
+            f.write("\nLife: " + life);
+            f.write("\nExp: " + exp);
+            f.write("\nLvl: " + lvl);
+
+            f.write("\n\nTyp: " + weapon.ReturnTyp());
+            f.write("\nStr: " + weapon.ReturnStr());
+            f.write("\nDex: " + weapon.ReturnDex());
+
+            System.out.println("Udało sie zapisać postać!");
+        } catch (Exception e) {
+            System.out.println("Bład:" + e);
         }
     }
 }

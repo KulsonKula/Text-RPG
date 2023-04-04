@@ -7,6 +7,7 @@ public class Ranger extends Player {
         def = 3;
         str = 10;
         dex = 20;
+        profesion = 'R';
         weapon = new Bow();
     }
 
