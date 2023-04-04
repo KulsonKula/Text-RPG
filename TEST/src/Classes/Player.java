@@ -14,7 +14,7 @@ abstract public class Player {
     int lvl = 1;
     Weapon weapon;
     int alive = 1;
-    char profesion;
+    String profesion;
 
     public Player() {
         exp = 0;
@@ -63,18 +63,17 @@ abstract public class Player {
 
     public void Zapisz() {
         try (FileWriter f = new FileWriter("Postać.txt");) {
-            f.write("Profesion: " + profesion);
-            f.write("\nStr: " + str);
-            f.write("\nDex: " + dex);
-            f.write("\nDef: " + def);
-            f.write("\nMaxlife: " + maxLife);
-            f.write("\nLife: " + life);
-            f.write("\nExp: " + exp);
-            f.write("\nLvl: " + lvl);
+            f.write(profesion);
+            f.write("\n" + str);
+            f.write("\n" + dex);
+            f.write("\n" + def);
+            f.write("\n" + maxLife);
+            f.write("\n" + life);
+            f.write("\n" + exp);
+            f.write("\n" + lvl);
 
-            f.write("\n\nTyp: " + weapon.ReturnTyp());
-            f.write("\nStr: " + weapon.ReturnStr());
-            f.write("\nDex: " + weapon.ReturnDex());
+            f.write("\n" + weapon.ReturnStr());
+            f.write("\n" + weapon.ReturnDex());
 
             System.out.println("Udało sie zapisać postać!");
         } catch (Exception e) {

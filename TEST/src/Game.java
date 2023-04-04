@@ -8,6 +8,7 @@ public class Game {
         Player player = null;
         File f = null;
 
+        f = new File("Postać.txt");
         System.out.println("Witaj w Text RPG!");
         System.out.println("Co byś chciał zrobić?");
         System.out.println("1: Nowa gra.");
@@ -30,14 +31,34 @@ public class Game {
                             player = new Warrior();
                             break;
                     }
-                    f = new File("Postać.txt");
+
                     f.createNewFile();
                     player.Zapisz();
                     break;
                 case 2:
+                    int[] data_g = { 0, 0, 0, 0, 0, 0, 0 };
+                    int[] data_b = { 0, 0 };
+                    Scanner myReader = new Scanner(f);
+                    String profesion = myReader.nextLine();
+
+                    for (int i = 0; i < 7; i++) {
+                        data_g[i] = myReader.nextInt();
+                    }
+
+                    for (int i = 0; i < 2; i++) {
+                        data_b[i] = myReader.nextInt();
+                    }
+                    System.out.println(profesion);
+                    if (profesion == "W") {
+                        player = new Warrior(data_g, data_b);
+                        System.out.println("WARRIOOR");
+                    } else {
+                        player = new Ranger(data_g, data_b);
+                        System.out.println("RANGER");
+                    }
+                    myReader.close();
                     break;
                 case 3:
-
                     System.exit(0);
                     break;
             }
@@ -48,6 +69,6 @@ public class Game {
         Exception e) {
             System.out.println("Bład:" + e);
         }
-        System.out.println(player.GetExp());
+        System.out.println("atak: " + player.GetAttack());
     }
 }

@@ -31,6 +31,13 @@ class Bow extends Weapon {
         typ = 'B';
     }
 
+    public Bow(int[] stats) {
+        str = stats[0];
+        dex = stats[1];
+        typ = 'B';
+
+    }
+
     public Bow(int lvl, char r) {
         str = 0;
         typ = 'B';
@@ -59,6 +66,12 @@ class Sword extends Weapon {
     public Sword() {
         str = 10;
         dex = 0;
+        typ = 'S';
+    }
+
+    public Sword(int[] stats) {
+        str = stats[0];
+        dex = stats[1];
         typ = 'S';
     }
 

@@ -7,8 +7,19 @@ public class Warrior extends Player {
         def = 5;
         str = 12;
         dex = 10;
-        profesion = 'W';
+        profesion = "W";
         weapon = new Sword();
+    }
+
+    public Warrior(int[] stats, int[] bron) {
+        this.str = stats[0];
+        dex = stats[1];
+        def = stats[2];
+        maxLife = stats[3];
+        life = stats[4];
+        exp = stats[5];
+        lvl = stats[6];
+        weapon = new Sword(bron);
     }
 
     @Override

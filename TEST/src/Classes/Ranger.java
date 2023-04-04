@@ -7,8 +7,20 @@ public class Ranger extends Player {
         def = 3;
         str = 10;
         dex = 20;
-        profesion = 'R';
+        profesion = "R";
         weapon = new Bow();
+    }
+
+    public Ranger(int[] stats, int[] bron) {
+
+        str = stats[0];
+        dex = stats[1];
+        def = stats[2];
+        maxLife = stats[3];
+        life = stats[4];
+        exp = stats[5];
+        lvl = stats[6];
+        weapon = new Bow(bron);
     }
 
     @Override
