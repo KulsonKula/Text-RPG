@@ -48,8 +48,8 @@ public class Game {
                     for (int i = 0; i < 2; i++) {
                         data_b[i] = myReader.nextInt();
                     }
-                    System.out.println(profesion);
-                    if (profesion == "W") {
+                    System.out.println(profesion.charAt(0));
+                    if (profesion.charAt(0) == 'W') {
                         player = new Warrior(data_g, data_b);
                         System.out.println("WARRIOOR");
                     } else {
