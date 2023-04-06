@@ -49,12 +49,10 @@ public class Game {
                         data_b[i] = myReader.nextInt();
                     }
                     System.out.println(profesion.charAt(0));
-                    if (profesion.charAt(0) == 'W') {
+                    if (profesion.equals("W")) {
                         player = new Warrior(data_g, data_b);
-                        System.out.println("WARRIOOR");
                     } else {
                         player = new Ranger(data_g, data_b);
-                        System.out.println("RANGER");
                     }
                     myReader.close();
                     break;
