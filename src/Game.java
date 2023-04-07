@@ -8,7 +8,7 @@ public class Game {
         Player player = null;
         File f = null;
 
-        f = new File("Postać.txt");
+        f = new File("Savefile.txt");
         System.out.println("Witaj w Text RPG!");
         System.out.println("Co byś chciał zrobić?");
         System.out.println("1: Nowa gra.");

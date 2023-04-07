@@ -75,7 +75,7 @@ abstract public class Player {
     }
 
     public void Zapisz() {
-        try (FileWriter f = new FileWriter("Postać.txt");) {
+        try (FileWriter f = new FileWriter("Savefile.txt");) {
             f.write(profesion);
             f.write("\n" + str);
             f.write("\n" + dex);
