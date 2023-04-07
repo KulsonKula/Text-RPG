@@ -48,7 +48,6 @@ public class Game {
                     for (int i = 0; i < 2; i++) {
                         data_b[i] = myReader.nextInt();
                     }
-                    System.out.println(profesion.charAt(0));
                     if (profesion.equals("W")) {
                         player = new Warrior(data_g, data_b);
                     } else {
@@ -67,6 +66,6 @@ public class Game {
         Exception e) {
             System.out.println("Bład:" + e);
         }
-        System.out.println("atak: " + player.GetAttack());
+        player.DispStats();
     }
 }

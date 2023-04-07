@@ -42,6 +42,19 @@ abstract public class Player {
 
     abstract public int GetAttack();
 
+    public void DispStats() {
+        System.out.println("Życie: " + life);
+        System.out.println("Maksymalne życie: " + maxLife);
+        System.out.println("Siła: " + str);
+        System.out.println("Dexterity: " + dex);
+        System.out.println("Obrono: " + def);
+        System.out.println("Poziom: " + lvl);
+        System.out.println("Doświadczenie: " + exp);
+        System.out.println(
+                "Do nastepnego poziomu potrzebne ci będzie: " + ((int) Math.pow(this.lvl, 1.5) + 50 - this.exp)
+                        + " doświadczenia");
+    }
+
     abstract public void LvlUp();
 
     public void GetExp(int exp) {
