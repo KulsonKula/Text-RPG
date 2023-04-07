@@ -7,28 +7,29 @@ public class Game {
     public static void main(String[] args) throws Exception {
         Player player = null;
         File f = null;
-
+        boolean granie;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWitaj w Text RPG!");
         f = new File("Savefile.txt");
-        System.out.println("Witaj w Text RPG!");
-        System.out.println("Co byś chciał zrobić?");
-        System.out.println("1: Nowa gra.");
-        System.out.println("2: Wczytaj postać.");
-        System.out.println("3: Wyjdz.");
+        while (true) {
+            System.out.println("Co byś chciał zrobić?");
+            System.out.println("1: Nowa gra.");
+            System.out.println("2: Wczytaj postać.");
+            System.out.println("3: Wyjdz.");
 
-        try (Scanner scanner = new Scanner(System.in);) {
             int number = scanner.nextInt();
             switch (number) {
                 case 1:
-                    System.out.println("Jaką klasą chcesz grać?");
-                    System.out.println("1: Ranger");
-                    System.out.println("2: Warrior");
+                    System.out.println("\nJaką klasą chcesz grać?");
+                    System.out.println("1: Warrior");
+                    System.out.println("2: Ranger");
                     number = scanner.nextInt();
                     switch (number) {
                         case 1:
-                            player = new Ranger();
+                            player = new Warrior();
                             break;
                         case 2:
-                            player = new Warrior();
+                            player = new Ranger();
                             break;
                     }
 
@@ -53,19 +54,55 @@ public class Game {
                     } else {
                         player = new Ranger(data_g, data_b);
                     }
+
                     myReader.close();
                     break;
                 case 3:
+                    scanner.close();
                     System.exit(0);
                     break;
             }
+            granie = true;
+            while (granie) {
+                System.out.println("\nCo chciałbyś zrobić:");
+                System.out.println("1: Zobacz statystki swojej postaci.");
+                System.out.println("2: TEST.");
+                System.out.println("3: Odpocznij.");
+                System.out.println("4: Zapisz i wyjdź");
+                scanner.nextLine();
+                int tryb = scanner.nextInt();
+                switch (tryb) {
+                    case 1:
+                        player.DispStats();
+                        break;
+                    case 2:
+                        if (player.GetAlive()) {
+                            player.TakeHit(30);
+                        } else {
+                            System.out.println("\nAby walczyć na arenie musisz sie podleczyć.");
+                        }
+                        break;
+                    case 3:
+                        player.Healing();
+                        break;
+                    case 4:
+                        System.out.println("\nCo chciałbyś zrobić:");
+                        System.out.println("1: Wyjdz do menu");
+                        System.out.println("2: Wyjdz z programu");
+                        scanner.nextLine();
+                        tryb = scanner.nextInt();
+                        player.Zapisz();
+                        switch (tryb) {
+                            case 1:
+                                granie = false;
+                                break;
+                            case 2:
+                                System.exit(0);
+                                break;
+                        }
+                        break;
+                }
+            }
         }
-
-        catch (
-
-        Exception e) {
-            System.out.println("Bład:" + e);
-        }
-        player.DispStats();
     }
 }

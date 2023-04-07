@@ -12,7 +12,8 @@ public class Warrior extends Player {
     }
 
     public Warrior(int[] stats, int[] bron) {
-        this.str = stats[0];
+        profesion = "W";
+        str = stats[0];
         dex = stats[1];
         def = stats[2];
         maxLife = stats[3];
@@ -33,5 +34,7 @@ public class Warrior extends Player {
         life = maxLife;
         def = def + 2;
         str = str + 4;
+        System.out.println("Awansujesz!");
+        System.out.println("Aktualnie masz: " + lvl + ". poziom!");
     }
 }

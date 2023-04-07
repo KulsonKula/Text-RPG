@@ -12,7 +12,7 @@ public class Ranger extends Player {
     }
 
     public Ranger(int[] stats, int[] bron) {
-
+        profesion = "R";
         str = stats[0];
         dex = stats[1];
         def = stats[2];
@@ -34,5 +34,7 @@ public class Ranger extends Player {
         life = maxLife;
         def = def + 1;
         str = str + 8;
+        System.out.println("Awansujesz!");
+        System.out.println("Aktualnie masz: " + lvl + ". poziom!");
     }
 }

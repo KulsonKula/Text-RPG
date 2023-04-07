@@ -13,7 +13,7 @@ abstract public class Player {
     int exp = 0;
     int lvl = 1;
     Weapon weapon;
-    int alive = 1;
+    boolean alive = true;
     String profesion;
 
     public Player() {
@@ -40,11 +40,15 @@ abstract public class Player {
         return str;
     }
 
+    public boolean GetAlive() {
+        return alive;
+    }
+
     abstract public int GetAttack();
 
     public void DispStats() {
+        System.out.println("\nMaksymalne życie: " + maxLife);
         System.out.println("Życie: " + life);
-        System.out.println("Maksymalne życie: " + maxLife);
         System.out.println("Siła: " + str);
         System.out.println("Dexterity: " + dex);
         System.out.println("Obrono: " + def);
@@ -57,21 +61,42 @@ abstract public class Player {
 
     abstract public void LvlUp();
 
-    public void GetExp(int exp) {
-        if (this.exp + exp > (int) Math.pow(this.lvl, 1.5) + 50) {
+    public void GetExp(int pd) {
+
+        exp += pd;
+        while (exp > (int) Math.pow(lvl, 1.5) + 50) {
             LvlUp();
-            this.exp = this.exp + exp - (int) Math.pow(this.lvl, 1.5) + 50;
-        } else {
-            this.exp = this.exp + exp;
+            exp -= (int) Math.pow(lvl, 1.5) + 50;
         }
+        System.out.println(
+                "\nDo nastepnego poziomu potrzebne ci będzie: " + ((int) Math.pow(lvl, 1.5) +
+                        50 - exp)
+                        + " doświadczenia");
+    }
+
+    public void Healing() {
+        while (life < maxLife) {
+
+            System.out.println("Leczenie...");
+            life += 5 + 3 * lvl;
+            if (life > maxLife) {
+                life = maxLife;
+            }
+
+        }
+        alive = true;
+        System.out.println("\nAktualnie masz: " + life + " zdrowia.");
     }
 
     public void TakeHit(int dmg) {
-        life = life - dmg;
+        if (dmg > def) {
+            life += +def - dmg;
+        }
         if (life <= 0) {
-            alive = 0;
+            alive = false;
             life = 0;
         }
+        System.out.println("\nAktualnie masz: " + life + " zdrowia.");
     }
 
     public void Zapisz() {
@@ -88,7 +113,8 @@ abstract public class Player {
             f.write("\n" + weapon.ReturnStr());
             f.write("\n" + weapon.ReturnDex());
 
-            System.out.println("Udało sie zapisać postać!");
+            System.out.println("\nUdało sie zapisać postać!\n");
+            f.close();
         } catch (Exception e) {
             System.out.println("Bład:" + e);
         }
