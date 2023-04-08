@@ -7,12 +7,13 @@ public class Ranger extends Player {
         def = 3;
         str = 10;
         dex = 20;
-        profesion = "R";
+        exp = 0;
+        profession = "R";
         weapon = new Bow();
     }
 
     public Ranger(int[] stats, int[] bron) {
-        profesion = "R";
+        profession = "R";
         str = stats[0];
         dex = stats[1];
         def = stats[2];

@@ -10,38 +10,30 @@ abstract public class Player {
     int str;
     int dex;
     int def;
-    int exp = 0;
+    int exp;
     int lvl = 1;
     Weapon weapon;
     boolean alive = true;
-    String profesion;
+    String profession;
 
     public Player() {
         exp = 0;
-    }
-
-    public int GetLife() {
-        return life;
-    }
-
-    public int GetDef() {
-        return def;
     }
 
     public int GetExp() {
         return exp;
     }
 
-    public int GetDex() {
-        return dex;
-    }
-
-    public int GetStr() {
-        return str;
+    public int GetLvl() {
+        return lvl;
     }
 
     public boolean GetAlive() {
         return alive;
+    }
+
+    public void SetExp(int pd) {
+        exp = pd;
     }
 
     abstract public int GetAttack();
@@ -55,7 +47,7 @@ abstract public class Player {
         System.out.println("Poziom: " + lvl);
         System.out.println("Doświadczenie: " + exp);
         System.out.println(
-                "Do nastepnego poziomu potrzebne ci będzie: " + ((int) Math.pow(this.lvl, 1.5) + 50 - this.exp)
+                "Do następnego poziomu potrzebne ci będzie: " + ((int) Math.pow(this.lvl, 1.5) + 50 - this.exp)
                         + " doświadczenia");
     }
 
@@ -69,7 +61,7 @@ abstract public class Player {
             exp -= (int) Math.pow(lvl, 1.5) + 50;
         }
         System.out.println(
-                "\nDo nastepnego poziomu potrzebne ci będzie: " + ((int) Math.pow(lvl, 1.5) +
+                "\nDo następnego poziomu potrzebne ci będzie: " + ((int) Math.pow(lvl, 1.5) +
                         50 - exp)
                         + " doświadczenia");
     }
@@ -90,7 +82,7 @@ abstract public class Player {
 
     public void TakeHit(int dmg) {
         if (dmg > def) {
-            life += +def - dmg;
+            life += def - dmg;
         }
         if (life <= 0) {
             alive = false;
@@ -100,8 +92,8 @@ abstract public class Player {
     }
 
     public void Zapisz() {
-        try (FileWriter f = new FileWriter("Savefile.txt");) {
-            f.write(profesion);
+        try (FileWriter f = new FileWriter("Savefile.txt")) {
+            f.write(profession);
             f.write("\n" + str);
             f.write("\n" + dex);
             f.write("\n" + def);
@@ -114,9 +106,8 @@ abstract public class Player {
             f.write("\n" + weapon.ReturnDex());
 
             System.out.println("\nUdało sie zapisać postać!\n");
-            f.close();
         } catch (Exception e) {
-            System.out.println("Bład:" + e);
+            System.out.println("Błąd:" + e);
         }
     }
 }

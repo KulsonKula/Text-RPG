@@ -7,12 +7,13 @@ public class Warrior extends Player {
         def = 5;
         str = 12;
         dex = 10;
-        profesion = "W";
+        exp = 0;
+        profession = "W";
         weapon = new Sword();
     }
 
     public Warrior(int[] stats, int[] bron) {
-        profesion = "W";
+        profession = "W";
         str = stats[0];
         dex = stats[1];
         def = stats[2];

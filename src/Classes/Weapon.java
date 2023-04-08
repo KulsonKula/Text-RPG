@@ -19,9 +19,6 @@ abstract class Weapon {
         return dex;
     }
 
-    public char ReturnTyp() {
-        return typ;
-    }
 }
 
 class Bow extends Weapon {
@@ -42,18 +39,10 @@ class Bow extends Weapon {
         str = 0;
         typ = 'B';
         switch (r) {
-            case 'C':
-                dex = 10 + 2 * r + rand.nextInt(4);
-                break;
-            case 'R':
-                dex = 10 + 3 * r + rand.nextInt(4);
-                break;
-            case 'L':
-                dex = 10 + 5 * r + rand.nextInt(4);
-                break;
-            default:
-                dex = 10 + 2 * r;
-                break;
+            case 'C' -> dex = 10 + 2 * lvl + rand.nextInt(4);
+            case 'R' -> dex = 10 + 3 * lvl + rand.nextInt(4);
+            case 'L' -> dex = 10 + 5 * lvl + rand.nextInt(4);
+            default -> dex = 10 + 2 * lvl;
         }
     }
 
@@ -79,18 +68,10 @@ class Sword extends Weapon {
         dex = 0;
         typ = 'S';
         switch (r) {
-            case 'C':
-                str = 10 + 2 * r + rand.nextInt(4);
-                break;
-            case 'R':
-                str = 10 + 3 * r + rand.nextInt(4);
-                break;
-            case 'L':
-                str = 10 + 5 * r + rand.nextInt(4);
-                break;
-            default:
-                str = 10 + 2 * r;
-                break;
+            case 'C' -> str = 10 + 2 * lvl + rand.nextInt(4);
+            case 'R' -> str = 10 + 3 * lvl + rand.nextInt(4);
+            case 'L' -> str = 10 + 5 * lvl + rand.nextInt(4);
+            default -> str = 10 + 2 * lvl;
         }
     }
 
