@@ -24,7 +24,6 @@ public class Game {
                     System.out.println("\nJaką klasą chcesz grać?");
                     System.out.println("1: Warrior");
                     System.out.println("2: Ranger");
-                    System.out.println("TEST");
                     number = scanner.nextInt();
                     switch (number) {
                         case 1:
