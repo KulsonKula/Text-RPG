@@ -1,4 +1,5 @@
 import Classes.*;
+
 import java.util.Scanner;
 import java.io.File;
 
@@ -23,6 +24,7 @@ public class Game {
                     System.out.println("\nJaką klasą chcesz grać?");
                     System.out.println("1: Warrior");
                     System.out.println("2: Ranger");
+                    System.out.println("TEST");
                     number = scanner.nextInt();
                     switch (number) {
                         case 1:
@@ -37,8 +39,8 @@ public class Game {
                     player.Zapisz();
                     break;
                 case 2:
-                    int[] data_g = { 0, 0, 0, 0, 0, 0, 0 };
-                    int[] data_b = { 0, 0 };
+                    int[] data_g = {0, 0, 0, 0, 0, 0, 0};
+                    int[] data_b = {0, 0};
                     Scanner myReader = new Scanner(f);
                     String profesion = myReader.nextLine();
 
